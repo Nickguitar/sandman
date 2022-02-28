@@ -15,6 +15,10 @@ pub struct Args {
     #[structopt(short, long)]
     pub env: Vec<String>,
 
+	///RUN: Mount a common share folder
+    #[structopt(short, long)]
+    pub hub: bool,
+
     /// BUILD: Use layer cache (--layers=true)
     #[structopt(short, long)]
     pub cache: bool,
