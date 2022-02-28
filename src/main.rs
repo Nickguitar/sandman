@@ -11,7 +11,7 @@ use std::path::{Path, Component};
 //use std::ffi::OsStr;
 
 /// Constants
-const SANDMAN_DIR: &str = "Sandman";
+const SANDMAN_DIR: &str = "sandman";
 
 /// Loads and returns a container based on the TOML configuration
 fn load_container(container_name: &String, absolute: bool) -> Container {
