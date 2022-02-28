@@ -59,6 +59,9 @@ pub struct ContainerConfigRun {
 
     #[serde(default)]
     args: Vec<String>,
+
+    #[serde(default)]
+    hub: bool,
 }
 
 /// The configuration of a container
@@ -164,6 +167,12 @@ impl Container {
             devices.extend(toggles.uidmap.devices);
             env.extend(toggles.uidmap.env);
             args.extend(toggles.uidmap.args);
+        }
+		if self.config.run.hub {
+            volumes.extend(toggles.hub.volumes);
+            devices.extend(toggles.hub.devices);
+            env.extend(toggles.hub.env);
+            args.extend(toggles.hub.args);
         }
 
         // Add customized configuration
