@@ -20,6 +20,7 @@ pub struct Toggles {
     pub dbus: ToggleImplication,
     pub net: ToggleImplication,
     pub uidmap: ToggleImplication,
+    pub hub: ToggleImplication,
 }
 
 impl Toggles {
@@ -120,6 +121,15 @@ impl Toggles {
             args: vec![String::from("--network"), String::from("slirp4netns")],
         };
 
+        let hub = ToggleImplication {
+            env: vec![],
+            volumes: vec![
+                String::from("/home/nich0las/sandman/hub/:/home/user/hub/"),
+            ],
+            devices: vec![],
+            args: vec![],
+        };
+
         Toggles {
             x11: x11,
             wayland: wayland,
@@ -129,6 +139,7 @@ impl Toggles {
             dbus: dbus,
             net: net,
             uidmap: uidmap,
+            hub: hub,
         }
     }
 
